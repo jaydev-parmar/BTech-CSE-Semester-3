@@ -9,16 +9,16 @@ SELECT * FROM EMPLOYEE
 WHERE FIRSTNAME LIKE '_____';
 --3. Display employees detail whose CITY ends with ‘T’ and has 6 characters. 
 SELECT * FROM EMPLOYEE
-WHERE CITY LIKE '_____%T';
+WHERE CITY LIKE '_____T';
 --4. Display employees detail whose LASTNAME ends with ‘EL’. 
 SELECT * FROM EMPLOYEE
 WHERE LASTNAME LIKE '%EL';
 --5. Display employees detail whose FIRSTNAME starts with ‘R’ and ends with ‘A’. 
 SELECT * FROM EMPLOYEE
-WHERE FIRSTNAME LIKE 'R%%A';
+WHERE FIRSTNAME LIKE 'R%A';
 --6. Display employees detail whose FIRSTNAME starts with ‘V’ and third character is ‘S’. 
 SELECT * FROM EMPLOYEE
-WHERE FIRSTNAME LIKE 'V%__S%';
+WHERE FIRSTNAME LIKE 'V_S%';
 --7. Display employees detail whose CITY is NULL and FIRSTNAME has 6 characters. 
 SELECT * FROM EMPLOYEE
 WHERE CITY IS NULL AND FIRSTNAME LIKE '______';
@@ -27,10 +27,10 @@ SELECT * FROM EMPLOYEE
 WHERE FIRSTNAME LIKE '%AR%';
 --9. Display employees detail whose CITY starts with ‘R’ or ‘B’. 
 SELECT * FROM EMPLOYEE
-WHERE CITY LIKE '[R,B]%';
+WHERE CITY LIKE '[RB]%';
 --10. Display employees detail whose DEPARTMENT is NOT NULL.
 SELECT * FROM EMPLOYEE
-WHERE NOT DEPARTMENT IS NULL;
+WHERE DEPARTMENT IS NOT NULL;
 --11. Display employees detail whose FIRSTNAME starts from alphabet A to H. 
 SELECT * FROM EMPLOYEE
 WHERE FIRSTNAME LIKE '[A-H]%';
@@ -48,13 +48,13 @@ SELECT * FROM EMPLOYEE
 WHERE CITY LIKE '[^B]%';
 --16. Display employees whose second character of FIRSTNAME is a not vowel. 
 SELECT * FROM EMPLOYEE
-WHERE NOT FIRSTNAME LIKE '_[^AEIOU]%';
+WHERE FIRSTNAME LIKE '_[^AEIOU]%';
 --17. Display employees whose JOINING YEAR last digit is 4 or 6. 
 SELECT * FROM EMPLOYEE
-WHERE JOININGYEAR LIKE '%[4,6]';
+WHERE JOININGYEAR LIKE '%[46]';
 --18. Display employees detail whose FIRSTNAME starts with ‘H’, ends with ‘I’, and CITY contains ‘RA’.
 SELECT * FROM EMPLOYEE
-WHERE FIRSTNAME LIKE 'H%%I' AND CITY LIKE '%RA%';
+WHERE FIRSTNAME LIKE 'H%I' AND CITY LIKE '%RA%';
 --19. Display employees detail whose FIRSTNAME contains ‘A’, CITY ends with ‘D’, and DEPARTMENT is NOT 
 --NULL. 
 SELECT * FROM EMPLOYEE
@@ -66,14 +66,16 @@ WHERE FIRSTNAME LIKE '_[AEIOU][AEIOU]%' AND CITY LIKE 'R%';
 --Part – B: 
 --21. Display employees whose CITY contains ‘RA’ and salary less than 13000 and joining year last digit is 6.
 SELECT * FROM EMPLOYEE
-WHERE CITY LIKE '%RA%' AND SALARY < 13000 AND JOININGYEAR LIKE '%6%';
+WHERE CITY LIKE '%RA%' AND SALARY < 13000 AND JOININGYEAR LIKE '%6';
 --22. Display employees whose SALARY between 10000 and 15000 and CITY name contains 'KO' and 
 --FIRSTNAME start with H.
 SELECT * FROM EMPLOYEE
-WHERE SALARY BETWEEN 10000 AND 15000 AND CITY LIKE '%KO%'
+WHERE SALARY BETWEEN 10000 AND 15000
+AND CITY LIKE '%KO%'
+AND FIRSTNAME LIKE 'H%';
 --23. Display employees whose FIRSTNAME starts with ‘A’ or ‘D’ and SALARY greater than 12000. 
 SELECT * FROM EMPLOYEE
-WHERE FIRSTNAME LIKE '[A,D]%' AND SALARY > 12000;
+WHERE FIRSTNAME LIKE '[AD]%' AND SALARY > 12000;
 --24. Display employees whose CITY contains ‘N’ and SALARY less than 15000. 
 SELECT * FROM EMPLOYEE
 WHERE CITY LIKE '%N%' AND SALARY < 15000;
@@ -89,14 +91,16 @@ WHERE FIRSTNAME LIKE '%[AEIOU]' AND DEPARTMENT LIKE '[AEIOU]%' AND SALARY BETWEE
 --27. Display employees whose LASTNAME contains ‘A’ at least twice, gender is male, and SALARY is not equal 
 --to 14000. 
 SELECT * FROM EMPLOYEE
-WHERE LASTNAME LIKE '%A%%A%' AND GENDER = 'MALE' AND SALARY <> 14000;
+WHERE LASTNAME LIKE '%A%A%' AND GENDER = 'MALE' AND SALARY <> 14000;
 
  
 --Page 6 of 26 
 --28. Display employees whose FIRSTNAME second character is vowel and LASTNAME ends with ‘R’ and 
 --SALARY less than 12000. 
 SELECT * FROM EMPLOYEE
-WHERE FIRSTNAME LIKE '_[AEIOU]%' AND LASTNAME LIKE '%R';
+WHERE FIRSTNAME LIKE '_[AEIOU]%'
+AND LASTNAME LIKE '%R'
+AND SALARY < 12000;
 --29. Display employees whose CITY is NOT NULL and FIRSTNAME does not start with vowel and DEPARTMENT 
 --not in (‘HR’, ‘IT’). 
 SELECT * FROM EMPLOYEE
